@@ -6,7 +6,9 @@ A simple e-commerce website featuring:
 - 📦 **Orders & Tracking Page** – Displays user orders and tracking details  
 
 ## 🎯 About This Project  
-This project was built to practice and strengthen my skills in React and JavaScript. It is inspired by the [SuperSimple.Dev Amazon Project](https://supersimple.dev/projects/amazon/) from their JavaScript YouTube course, which I highly recommend for beginner programmers.  
+This project was built to practice and strengthen my skills in React and JavaScript. It is inspired by the [SuperSimple.Dev Amazon Project](https://supersimple.dev/projects/amazon/) from their JavaScript YouTube course, which I highly recommend for beginner programmers. 
+
+> 📷 **Images:** All product images were taken from the SuperSimple.Dev Amazon Project.
 
 > 🚨 **Note:** No code was copied. The application structure and styling were used purely as inspiration for learning purposes.  
 
@@ -30,3 +32,4 @@ Through this project, I gained experience with:
 ✔️ Handling and structuring data effectively  
 ✔️ Responsive styling with Tailwind CSS  
 ✔️ Building scalable and maintainable web applications  
+✔️ React Routing, using React Router DOM
