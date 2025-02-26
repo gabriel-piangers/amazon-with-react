@@ -1,24 +1,32 @@
-# Recreating amazon using Vite and React.js
+# Amazon Clone with Vite & React  
 
-A basic shopping e-commerce website with a home page, displaying all the products, a cart page containing all the products added to the cart and a orders and tracking page to display all the user orders.
+A simple e-commerce website featuring:  
+- 🏠 **Home Page** – Displays all available products  
+- 🛍️ **Cart Page** – Shows items added to the cart  
+- 📦 **Orders & Tracking Page** – Displays user orders and tracking details  
 
-I made this website to practice and learn about react and JavaScript, the whole application was based on the [supersimple.dev amazon project](https://supersimple.dev/projects/amazon/), used in his JavaScript youtube course, which I completed and super recommend to begginer programmers. <br>
-> No code has been copied, I only took inpiration on the application and the styling of his website for practice reasons only.
+## 🎯 About This Project  
+This project was built to practice and strengthen my skills in React and JavaScript. It is inspired by the [SuperSimple.Dev Amazon Project](https://supersimple.dev/projects/amazon/) from their JavaScript YouTube course, which I highly recommend for beginner programmers.  
 
-## Used tools and frameworks
+> 🚨 **Note:** No code was copied. The application structure and styling were used purely as inspiration for learning purposes.  
 
-JavaScript - main programming language <br>
-React.js - JavaScript library for web development <br>
-Vite - Build tool <br>
-Tailwind CSS - Styling framework based on utility classes <br>
+## 🛠️ Technologies Used  
 
-### Others libraries
+### Core Stack  
+- **JavaScript** – Main programming language  
+- **React.js** – UI development library  
+- **Vite** – Build tool for faster development  
+- **Tailwind CSS** – Utility-based styling framework  
 
-React-router-dom - handling different routes in the application <br>
-uuid - for ID genarating <br>
-dayJS - for handling dates <br>
+### Additional Libraries  
+- **React Router DOM** – Handles client-side routing  
+- **UUID** – Generates unique IDs  
+- **Day.js** – Simplifies date handling  
 
-<hr>
-
-With this small project I learned about react components, states, useEffects, API requests using fetch(), async/await functions, promisses, basic programming logic and data handling, responsive styling many other basic but essential tools and techniques used to create web applications.
-
+## 🚀 What I Learned  
+Through this project, I gained experience with:  
+✔️ React components, state management, and `useEffect` hooks  
+✔️ API requests with `fetch()`, async/await, and Promises  
+✔️ Handling and structuring data effectively  
+✔️ Responsive styling with Tailwind CSS  
+✔️ Building scalable and maintainable web applications  
