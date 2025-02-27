@@ -1,13 +1,13 @@
 import CartProducts from "../components/CartProducts";
 import OrderSummary from "../components/OrderSumarry";
 import CheckoutHeader from "../components/CheckoutHeader";
-import { useState } from "react";
-import { getCartQuantity } from "../scripts/Cart";
+import { useState, useReducer } from "react";
+import { getCartQuantity, cartQuantityReducer } from "../scripts/Cart";
 
 function CheckoutPage() {
   const [cart, setCart] = useState(JSON.parse(localStorage.getItem('cart')) || []);
 
-  const [cartQuantity, setCartQuantity] = useState(getCartQuantity());
+    const [cartQuantity, dispatchCartQuantity] = useReducer(cartQuantityReducer, getCartQuantity())
 
   return (
     <div className="flex flex-col pb-6">
@@ -22,8 +22,7 @@ function CheckoutPage() {
             <CartProducts
               cart={cart}
               setCart={setCart}
-              cartQuantity={cartQuantity}
-              setCartQuantity={setCartQuantity}
+              dispatchCartQuantity={dispatchCartQuantity}
             />
 
             <OrderSummary cart={cart} cartQuantity={cartQuantity} />

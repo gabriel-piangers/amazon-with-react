@@ -4,7 +4,7 @@ import { NavLink } from "react-router";
 import { formatCurrency } from "../scripts/money";
 import UpdateQuantity from "./UpdateQuantity";
 
-function CartProducts({ cart, setCart, setCartQuantity, cartQuantity }) {
+function CartProducts({ cart, setCart, dispatchCartQuantity}) {
   const CurrentTime = dayjs();
 
   function setDeliveryOption(deliveryId, productId) {
@@ -60,7 +60,7 @@ function CartProducts({ cart, setCart, setCartQuantity, cartQuantity }) {
                 <div className="flex gap-1">
                   <p>Quantity: </p>
                   <div className={`update-div-${cartItem.product.id}`}>
-                   < UpdateQuantity cartItem={cartItem} cart={cart} setCart={setCart} cartQuantity={cartQuantity} setCartQuantity={setCartQuantity}/>
+                   < UpdateQuantity cartItem={cartItem} cart={cart} setCart={setCart} dispatchCartQuantity={dispatchCartQuantity}/>
                   </div>
 
                   <button
@@ -70,7 +70,7 @@ function CartProducts({ cart, setCart, setCartQuantity, cartQuantity }) {
                         const bool =
                           newCartItem.product.id !== cartItem.product.id;
                         if (!bool) {
-                          setCartQuantity(cartQuantity - newCartItem.quantity);
+                          dispatchCartQuantity({type:'decrement', quantity: newCartItem.quantity});
                         }
                         return bool;
                       });

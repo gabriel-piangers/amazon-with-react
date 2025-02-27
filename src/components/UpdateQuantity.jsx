@@ -4,8 +4,7 @@ function UpdateQuantity({
   cartItem,
   cart,
   setCart,
-  cartQuantity,
-  setCartQuantity,
+  dispatchCartQuantity,
 }) {
   const [updateButton, setUpdateButton] = useState(false);
   const [selectedValue, setSelectedValue] = useState(cartItem.quantity);
@@ -42,7 +41,7 @@ function UpdateQuantity({
                 return item;
               }
             });
-            setCartQuantity(cartQuantity + (selectedValue - cartItem.quantity));
+            dispatchCartQuantity({type: 'increment', quantity: (selectedValue - cartItem.quantity)});;
             setCart(newCart);
             localStorage.setItem("cart", JSON.stringify(newCart));
             setUpdateButton(false);

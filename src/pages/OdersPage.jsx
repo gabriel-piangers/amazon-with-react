@@ -1,18 +1,18 @@
-import { useState } from "react";
+import { useReducer, useState } from "react";
 import Header from "../components/Header";
 import Orders from "../components/Orders";
-import { getCartQuantity } from "../scripts/Cart";
+import { cartQuantityReducer, getCartQuantity } from "../scripts/Cart";
 
 function OrdersPage() {
   const [orders] = useState(JSON.parse(localStorage.getItem('orders')) || []);
-  const [cartQuantity, setCartQuantity] = useState(getCartQuantity())
+  const [cartQuantity, dispatchCartQuantity] = useReducer(cartQuantityReducer, getCartQuantity())
 
 
   return (
     <div>
-      <Header cartQuantity={getCartQuantity()} />
+      <Header cartQuantity={cartQuantity} />
       <div className="flex">
-        <Orders orders={orders} cartQuantity={cartQuantity} setCartQuantity={setCartQuantity}/>
+        <Orders orders={orders} dispatchCartQuantity={dispatchCartQuantity}/>
       </div>
     </div>
   );

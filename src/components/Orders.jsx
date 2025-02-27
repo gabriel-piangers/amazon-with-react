@@ -3,7 +3,7 @@ import { addToCart } from "../scripts/Cart";
 import { formatCurrency } from "../scripts/money";
 import dayjs from "https://unpkg.com/dayjs@1.11.10/esm/index.js";
 
-function Orders({ orders, cartQuantity, setCartQuantity }) {
+function Orders({ orders, dispatchCartQuantity }) {
   return (
     <div className="p-10 mx-auto">
       <div className="mb-8 text-2xl font-medium">Your Orders</div>
@@ -57,7 +57,7 @@ function Orders({ orders, cartQuantity, setCartQuantity }) {
                               className="bg-yellow-300 flex w-full py-1 gap-2 rounded-md hover:cursor-pointer px-3 shadow-md"
                               onClick={() => {
                                 addToCart(product, 1);
-                                setCartQuantity(cartQuantity + 1);
+                                dispatchCartQuantity({type: 'increment', quantity: 1});
                               }}
                             >
                               <img

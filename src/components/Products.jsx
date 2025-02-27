@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { addToCart } from "../scripts/Cart";
 import { formatCurrency } from "../scripts/money";
 
-function Products({ cartQuantity, setCartQuantity, search }) {
+function Products({ dispatchCartQuantity, search }) {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
@@ -25,7 +25,6 @@ function Products({ cartQuantity, setCartQuantity, search }) {
   }
 
   function displayProduct(product) {
-    console.log('fucntio called')
     return (
       <div
         key={product.id}
@@ -93,7 +92,7 @@ function Products({ cartQuantity, setCartQuantity, search }) {
               document.querySelector(`#quantity-selector-${product.id}`).value
             );
             addToCart(product, quantity);
-            setCartQuantity(cartQuantity + quantity);
+            dispatchCartQuantity({type: 'increment', quantity});
             AddedPopUp(product.id);
           }}
         >

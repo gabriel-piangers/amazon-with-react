@@ -32,6 +32,19 @@ export function getCartQuantity() {
     return cartQuantity
 }
 
+export function cartQuantityReducer(state, action){
+    switch (action.type) {
+        case 'increment':
+            return state + action.quantity
+        case 'decrement':
+            return state - action.quantity
+        case 'set':
+            return action.quantity
+        case 'clear':
+            return 0
+    }
+}
+
 export function clearCart() {
     localStorage.setItem('cart', JSON.stringify([]))
 }
