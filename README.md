@@ -27,7 +27,7 @@ This project was built to practice and strengthen my skills in React and JavaScr
 
 ## 🚀 What I Learned  
 Through this project, I gained experience with:  
-✔️ React components, state management, and `useEffect` hooks  
+✔️ React components, state management, and `useEffect` and `useReducer` hooks  
 ✔️ API requests with `fetch()`, async/await, and Promises  
 ✔️ Handling and structuring data effectively  
 ✔️ Responsive styling with Tailwind CSS  
