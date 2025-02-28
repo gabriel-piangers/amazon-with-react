@@ -92,7 +92,7 @@ function Products({ dispatchCartQuantity, search }) {
               document.querySelector(`#quantity-selector-${product.id}`).value
             );
             addToCart(product, quantity);
-            dispatchCartQuantity({type: 'increment', quantity});
+            dispatchCartQuantity({ type: "increment", quantity });
             AddedPopUp(product.id);
           }}
         >
@@ -107,19 +107,19 @@ function Products({ dispatchCartQuantity, search }) {
       return product.name
         .toLowerCase()
         .includes(search.trimStart().trimEnd().toLowerCase());
-    })
+    });
     console.log(matching);
     return (
       <div className="grid grid-cols-[repeat(auto-fill,_minmax(200px,1fr))]">
         {matching.map((product) => displayProduct(product))}
       </div>
-    )
+    );
   } else {
     return (
       <div className="grid grid-cols-[repeat(auto-fill,_minmax(200px,1fr))]">
-        {products.map(product => displayProduct(product))}
+        {products.map((product) => displayProduct(product))}
       </div>
-    )
+    );
   }
 }
 

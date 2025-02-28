@@ -1,18 +1,14 @@
 import { useState } from "react";
 
-function UpdateQuantity({
-  cartItem,
-  cart,
-  setCart,
-  dispatchCartQuantity,
-}) {
+function UpdateQuantity({ cartItem, dispatchCart, dispatchCartQuantity }) {
   const [updateButton, setUpdateButton] = useState(false);
   const [selectedValue, setSelectedValue] = useState(cartItem.quantity);
 
   if (updateButton) {
     return (
       <div className="flex gap-1">
-        <select className="bg-stone-100 rounded-md border border-stone-400"
+        <select
+          className="bg-stone-100 rounded-md border border-stone-400"
           name={`quantity-selector-${cartItem.product.id}`}
           value={selectedValue}
           onChange={(event) => {
@@ -34,16 +30,19 @@ function UpdateQuantity({
         <button
           className="text-blue-600 hover:cursor-pointer  mx-1"
           onClick={() => {
-            const newCart = cart.map((item) => {
-              if (item.product.id === cartItem.product.id) {
-                return { ...item, quantity: selectedValue };
-              } else {
-                return item;
-              }
+            dispatchCartQuantity({
+              type: "increment",
+              quantity: selectedValue - cartItem.quantity,
             });
-            dispatchCartQuantity({type: 'increment', quantity: (selectedValue - cartItem.quantity)});;
-            setCart(newCart);
-            localStorage.setItem("cart", JSON.stringify(newCart));
+
+            dispatchCart({
+              type: "update",
+              payload: {
+                id: cartItem.product.id,
+                update: { quantity: selectedValue },
+              },
+            });
+
             setUpdateButton(false);
           }}
         >
