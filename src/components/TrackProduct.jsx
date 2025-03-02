@@ -6,7 +6,6 @@ function TrackProduct({ product }) {
     dayjs().subtract(dayjs(product.placedTime)) /
       dayjs(product.arrivingOn).subtract(dayjs())
   );
-  console.log(progress.toString());
   return (
     <div className="py-6 flex flex-col gap-10 w-[90%] max-w-[1000px] mx-auto">
       <NavLink to={"/orders"} className="text-sky-700 underline">

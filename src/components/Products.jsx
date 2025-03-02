@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import { addToCart } from "../scripts/Cart";
 import { formatCurrency } from "../scripts/money";
+import { cartReducer } from "../scripts/Cart";
 
 function Products({ dispatchCartQuantity, search }) {
   const [products, setProducts] = useState([]);
@@ -91,7 +91,7 @@ function Products({ dispatchCartQuantity, search }) {
             const quantity = Number.parseInt(
               document.querySelector(`#quantity-selector-${product.id}`).value
             );
-            addToCart(product, quantity);
+            cartReducer(JSON.parse(localStorage.getItem('cart')), {type: 'add', payload: {item: product, quantity}})
             dispatchCartQuantity({ type: "increment", quantity });
             AddedPopUp(product.id);
           }}

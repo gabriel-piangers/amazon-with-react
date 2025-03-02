@@ -1,7 +1,7 @@
 import { NavLink } from "react-router";
-import { addToCart } from "../scripts/Cart";
 import { formatCurrency } from "../scripts/money";
 import dayjs from "https://unpkg.com/dayjs@1.11.10/esm/index.js";
+import { cartReducer } from "../scripts/Cart";
 
 function Orders({ orders, dispatchCartQuantity }) {
   return (
@@ -56,7 +56,7 @@ function Orders({ orders, dispatchCartQuantity }) {
                             <button
                               className="bg-yellow-300 flex w-full py-1 gap-2 rounded-md hover:cursor-pointer px-3 shadow-md"
                               onClick={() => {
-                                addToCart(product, 1);
+                                cartReducer(JSON.parse(localStorage.getItem('cart')), {type: 'add', payload: {item: product, quantity: 1}})
                                 dispatchCartQuantity({type: 'increment', quantity: 1});
                               }}
                             >

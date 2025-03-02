@@ -1,7 +1,7 @@
 import { v4 } from "uuid"
 import dayjs from "https://unpkg.com/dayjs@1.11.10/esm/index.js";
-import { clearCart } from "../scripts/Cart";
 import { useNavigate } from "react-router";
+import { cartReducer } from "../scripts/Cart";
 
 
 function PlaceOrderButton({cart, totalPriceCents}) {
@@ -23,7 +23,7 @@ function PlaceOrderButton({cart, totalPriceCents}) {
         }
         orders.push(newOrder)
         localStorage.setItem('orders', JSON.stringify(orders))
-        clearCart()
+        cartReducer(JSON.parse(localStorage.getItem('cart')), {type:'clear'})
     }
 
     if (cart.length > 0) {

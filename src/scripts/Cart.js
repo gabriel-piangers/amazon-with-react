@@ -1,28 +1,3 @@
-export function addToCart(product, quantity) {
-  let cart = JSON.parse(localStorage.getItem("cart")) || [];
-  let itemInCart = false;
-  let newCart = cart.map((cartItem) => {
-    if (cartItem.product.id === product.id) {
-      itemInCart = true;
-      return { ...cartItem, quantity: quantity + cartItem.quantity };
-    } else {
-      return cartItem;
-    }
-  });
-  if (!itemInCart) {
-    newCart.push({
-      product,
-      quantity,
-      deliveryOption: {
-        id: 1,
-        timeToDelivery: 7,
-        priceCents: 0,
-      },
-    });
-  }
-  localStorage.setItem("cart", JSON.stringify(newCart));
-}
-
 export function getCartQuantity() {
   const cart = JSON.parse(localStorage.getItem("cart")) || [];
   let cartQuantity = 0;
@@ -40,11 +15,6 @@ export function cartQuantityReducer(state, action) {
       return state - action.quantity;
   }
 }
-
-export function clearCart() {
-  localStorage.setItem("cart", JSON.stringify([]));
-}
-
 export function cartReducer(state, action) {
   let productInCart = false;
   let newCart = [];
@@ -92,6 +62,10 @@ export function cartReducer(state, action) {
       });
       localStorage.setItem("cart", JSON.stringify(newCart));
       return newCart;
+
+    case "clear":
+      localStorage.setItem("cart", JSON.stringify([]));
+      return [];
 
     default:
       throw new Error("Unknown Action" + action.type);
